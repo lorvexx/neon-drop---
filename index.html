@@ -3,7 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>NEON DROP</title>
+<title>NEON DROP — апгрейдер скинов и открытие кейсов онлайн</title>
+<meta name="description" content="NEON DROP — бесплатный симулятор апгрейдера и кейсов: открывай кейсы, делай апгрейды скинов, играй баттлы и трейды с друзьями онлайн. Только виртуальная валюта, без реальных денег.">
+<meta name="keywords" content="neon drop, неон дроп, апгрейдер, апгрейдер скинов, симулятор апгрейдера, симулятор кейсов, открытие кейсов, кейсы, баттлы кейсов, трейды скинов">
+<meta name="robots" content="index,follow">
+<meta name="google-site-verification" content="iXud-aO3ri4l3JTO9D-idPR_aOQ_pf39_SxP5WW6T6w" />
+<meta name="yandex-verification" content="6c11ddd851b99d42" />
+<meta name="theme-color" content="#040806">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="NEON DROP">
+<meta property="og:title" content="NEON DROP — апгрейдер скинов и открытие кейсов онлайн">
+<meta property="og:description" content="Бесплатный симулятор апгрейдера и кейсов с баттлами и трейдами. Виртуальная валюта, без реальных денег.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoGame", "name": "NEON DROP", "description": "Бесплатный симулятор апгрейдера и кейсов с баттлами и трейдами. Только виртуальная валюта.", "inLanguage": "ru", "applicationCategory": "Game", "genre": "Simulation", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -165,6 +178,7 @@ body{background:radial-gradient(900px 420px at 50% -120px,rgba(25,255,140,.14),t
 .art.w6:after,.art.w8:after,.art.w9:after,.art.w10:after,.art.w11:after,.art.w12:after{inset:14px 16%}
 .art.w7:after,.art.w13:after,.art.w14:after,.art.w15:after{inset:8px 33%}
 .fm.art:after{inset:4px 4px!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 /* перчатки: мягкие формы с текстурами */
 .art.w7:after,.art.w13:after,.art.w14:after,.art.w15:after{inset:4px 24%;clip-path:none;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .art.w7:before,.art.w13:before,.art.w14:before,.art.w15:before{background:radial-gradient(circle at 50% 62%,hsl(var(--h) 80% 55%/.38),transparent 62%)}
@@ -260,6 +274,8 @@ button:active{transform:scale(.97)}
 </head>
 <body>
 <div class="app">
+  <h1 class="sr">NEON DROP — симулятор апгрейдера скинов и открытия кейсов</h1>
+  <noscript><div style="padding:24px;color:#e6fff1;font-family:system-ui,sans-serif"><h2>NEON DROP</h2><p>Бесплатный симулятор апгрейдера и кейсов. Открывай кейсы, делай апгрейды скинов, играй баттлы и трейды с друзьями онлайн. Для игры включи JavaScript. Валюта виртуальная, реальные деньги не используются.</p></div></noscript>
   <div class="feed" id="feed"><div class="onl" id="onl" onclick="go('mp')"></div><div class="mqw" id="mqw"></div><button class="snd" id="snd" onclick="togSnd()" aria-label="Звук">🔊</button></div>
   <div class="sign"><span>NEON</span><span>DROP</span></div>
   <header><button class="me" id="me" onclick="go('pf')" aria-label="Профиль"></button><div class="bal" id="bal"><i>◈</i><span id="balv">0</span></div></header>
@@ -348,14 +364,23 @@ for(let t=0;t<16;t++){const ws=[...W].sort(()=>r()-.5);
 SK.push({id:SK.length,n:"Абсолютный Король · Клинок",p:9990000,h:55,t:6});
 SK.push({id:SK.length,n:"Платиновый Эксклюзив · Клинок",p:3e7,h:160,t:6,x:1});
 SK.push({id:SK.length,n:"Пыль · Пистолет",p:2,h:0,t:3,x:1})})();
-const JACK=SK.find(s=>s.n==="Платиновый Эксклюзив · Клинок"),DUST=SK.find(s=>s.n==="Пыль · Пистолет");
+(()=>{const N=["Автомат","Винтовка","Снайперка","Пистолет","Дробовик","ПП","Клинок","Перчатки","Коготь","Складной нож","Танто","Охотничий нож","Стилет","Боевые перчатки","Спортивные перчатки","Рукавицы"],W=["Абсолют","Бастион","Галактика","Дракон","Зенит","Идол","Квазар","Легион","Мидас","Нектар","Омега","Паладин","Рубикон","Спектр","Тартар","Улей","Феррум","Химера","Цербер","Эфир","Юнона","Яшма","Аргон","Балтика"];let x=211;const r=()=>(x=x*16807%2147483647)/2147483647;
+const rd=(p,k)=>{const d=Math.pow(10,Math.floor(Math.log10(p))-(k-1));return Math.round(p/d)*d};
+for(let t=0;t<16;t++){const ws=[...W].sort(()=>r()-.5).slice(0,20);for(const w of ws)SK.push({id:SK.length,n:w+" · "+N[t],p:Math.min(9.9e7,rd(5000*Math.pow(20000,r()),3)),h:Math.floor(r()*360),t})}
+SK.push({id:SK.length,n:"Бог Неона · Клинок",p:1e8,h:150,t:6})})();
+const JACK=SK.find(s=>s.n==="Платиновый Эксклюзив · Клинок"),DUST=SK.find(s=>s.n==="Пыль · Пистолет"),GOD=SK.find(s=>s.n==="Бог Неона · Клинок");
 const STK=[["🔥","Огонь",40],["💎","Алмаз",300],["👑","Корона",1200],["🎯","Мишень",60],["🐺","Волк",150],["⚡","Молния",90],["🦄","Единорог",800],["💀","Череп",220],["🍀","Клевер",35],["🚀","Ракета",500],["🌙","Луна",120],["🧊","Лёд",70],["🐉","Дракон",2500],["⭐","Звезда",180],["🎲","Кости",45],["🦅","Орёл",350],["🌋","Вулкан",650],["🪐","Планета",1600],["🍄","Гриб",30],["🕶️","Очки",110],["🧿","Талисман",420],["🏆","Кубок",3000]].map((a,i)=>({id:i,e:a[0],n:a[1],p:a[2]}));
 SK.forEach((k,i)=>{if(k.t===undefined)k.t=i%8});
 const RK=SK.filter(s=>!s.x).sort((a,b)=>a.p-b.p);
 const hu=(a,b)=>RK.filter(s=>a<=b?s.h>=a&&s.h<=b:(s.h>=a||s.h<=b));
 const ty=t=>RK.filter(s=>s.t===t);
 const pr=(a,b)=>RK.filter(s=>s.p>=a&&s.p<=b),KN=s=>s.t===6||(s.t>=8&&s.t<=12),GL=s=>s.t===7||s.t>=13;
-const CB=[["Рассвет",20,pr(0,120),1],["Тайга",150,pr(60,400),1],["Мираж",280,pr(250,1500),1],["Бархат",320,pr(1000,6000),1],["Метеор",45,pr(4000,60000),1],["Арсенал",200,RK.filter(s=>s.t<2),1],["Снайперы",160,ty(2),1],["Пистолеты",30,ty(3),1],["Дробь",10,ty(4),1],["Спринт",250,ty(5),1],["Ножи",340,RK.filter(KN),1],["Перчатки",300,RK.filter(GL),1],["Все подряд",120,RK,1],["Рискованный",0,RK,2],["Золотой",48,RK.slice(-40),1],["Копилка",90,pr(0,60),1],["Багровый",355,hu(340,20),1],["Ледяной",195,hu(170,250),1],["Лесной",120,hu(80,160),1],["Безопасный",230,pr(120,3000),.5],["Ножи VIP",48,RK.filter(s=>KN(s)&&s.p>=20000),1],["Перчатки VIP",150,RK.filter(s=>GL(s)&&s.p>=20000),1],["Джекпот 30кк",48,[DUST,JACK],1,5e6,[99,1]]].map(a=>{const pool=a[2],e=a[3],ws=a[5]||pool.map(s=>Math.pow(s.p,-e)),W=ws.reduce((x,y)=>x+y,0),ev=pool.reduce((x,s,i)=>x+s.p*ws[i],0)/W;return{n:"Кейс «"+a[0]+"»",pool,ws,W,h:a[1],price:a[4]||Math.max(10,Math.round(ev*1.12/10)*10)}});
+const CB=[["Рассвет",20,pr(0,120),1],["Тайга",150,pr(60,400),1],["Мираж",280,pr(250,1500),1],["Бархат",320,pr(1000,6000),1],["Метеор",45,pr(4000,60000),1],["Арсенал",200,RK.filter(s=>s.t<2),1],["Снайперы",160,ty(2),1],["Пистолеты",30,ty(3),1],["Дробь",10,ty(4),1],["Спринт",250,ty(5),1],["Ножи",340,RK.filter(KN),1],["Перчатки",300,RK.filter(GL),1],["Все подряд",120,RK,1],["Рискованный",0,RK,2],["Золотой",48,RK.slice(-40),1],["Копилка",90,pr(0,60),1],["Багровый",355,hu(340,20),1],["Ледяной",195,hu(170,250),1],["Лесной",120,hu(80,160),1],["Безопасный",230,pr(120,3000),.5],["Ножи VIP",48,RK.filter(s=>KN(s)&&s.p>=20000),1],["Перчатки VIP",150,RK.filter(s=>GL(s)&&s.p>=20000),1],["Джекпот 30кк",48,[DUST,JACK],1,5e6,[99,1]],
+["Когти",340,ty(8),1],["Складные",20,ty(9),1],["Танто",200,ty(10),1],["Охотничьи",100,ty(11),1],["Стилеты",280,ty(12),1],["Боевые перчатки",150,ty(13),1],["Спортивные",190,ty(14),1],["Рукавицы",320,ty(15),1],
+["Бронза",25,pr(0,300),1],["Серебро",210,pr(300,3000),1],["Золото",48,pr(3000,50000),1],["Платина",180,pr(50000,1e6),1],["Алмаз",195,pr(1e6,2e7),1],["Легенда",300,pr(2e7,1e8),1],
+["Янтарный",50,hu(30,70),1],["Изумрудный",135,hu(100,160),1],["Океан",205,hu(180,230),1],["Фиолетовый",285,hu(260,310),1],["Розовый",325,hu(310,345),1],
+(()=>{const a=pr(5,200),b=pr(5e6,1e8);return["Лотерея",60,[...a,...b],1,0,[...a.map(()=>97/a.length),...b.map(()=>3/b.length)]]})(),
+["Шанс 100кк",48,[DUST,GOD],1,120000,[999,1]],["Безумный",0,RK,3],["Золотая середина",60,pr(1000,100000),0],["Только дорогие",48,pr(5e6,1e8),.3],["Оружие",170,RK.filter(s=>s.t<=5),1]].map(a=>{const pool=a[2],e=a[3],ws=a[5]||pool.map(s=>Math.pow(s.p,-e)),W=ws.reduce((x,y)=>x+y,0),ev=pool.reduce((x,s,i)=>x+s.p*ws[i],0)/W;return{n:"Кейс «"+a[0]+"»",pool,ws,W,h:a[1],price:a[4]||Math.max(10,Math.round(ev*1.12/10)*10)}});
 const FSK=[["Стволы",s=>[0,1,4].includes(s.t)],["Лёгкое",s=>[2,5].includes(s.t)],["Пистолеты",s=>s.t===3],["Ножи",KN],["Перчатки",GL]].map(a=>{const pool=pr(0,50).filter(a[1]),ws=pool.map(s=>Math.pow(s.p,-.5)),W=ws.reduce((x,y)=>x+y,0);return{n:"Бесплатный · "+a[0],pool,ws,W,h:0}});
 let fdrop=null,cat="";
 let cs=null,drop=null,ss=null,q="",lim=24;
@@ -424,7 +449,7 @@ function crateSvg(h){return `<svg viewBox="0 0 120 100" aria-hidden="true"><defs
 const stCrate=(h,i)=>st.im["c"+i]?`<img alt="" src="${st.im["c"+i]}">`:crateSvg(h);
 function vCase(){
   if(fs!==null)return vFree();
-  if(cs===null)return `<div class="sec"><h2>Бесплатные кейсы · монеты</h2><div class="grid">${FREE.map((m,i)=>{const cd=fcd(i);return `<button class="card" onclick="fs=${i};fres=0;render()"><div class="art crs" style="--h:${140+i*20}">${crateSvg(140+i*20)}</div><div class="nm">Бесплатный · до ◈ ${m}</div><div class="pr">${cd?"через "+mmss(cd):"можно открыть"}</div></button>`}).join("")}</div></div><div class="sec"><h2>Бесплатные кейсы · скины до ◈ 50</h2><div class="grid">${FSK.map((c,i)=>{const cd=fcd(5+i);return `<button class="card" onclick="fs=${5+i};fres=0;fdrop=null;render()"><div class="art crs" style="--h:${60+i*55}">${crateSvg(60+i*55)}</div><div class="nm">${c.n.replace("Бесплатный · ","Бесплатный: ")}</div><div class="pr">${cd?"через "+mmss(cd):"скин до ◈ 50"}</div></button>`}).join("")}</div></div><div class="sec"><h2>Кейсы · ${CB.length}</h2><div class="grid">${CB.map((c,i)=>`<button class="card" onclick="cs=${i};drop=null;render()"><div ${ia("c"+i,c.h,"art crs")}>${st.im["c"+i]?"":crateSvg(c.h)}</div><div class="nm">${c.n}</div><div class="pr"><i>◈</i> ${fmt(c.price)} · ${c.pool.length} предм.</div></button>`).join("")}</div></div>`;
+  if(cs===null)return `<div class="sec"><h2>Бесплатные кейсы · монеты</h2><div class="grid">${FREE.map((m,i)=>{const cd=fcd(i);return `<button class="card" onclick="fs=${i};fres=0;render()"><div class="art crs" style="--h:${140+i*20}">${crateSvg(140+i*20)}</div><div class="nm">Бесплатный · до ◈ ${m}</div><div class="pr">${cd?"через "+mmss(cd):"можно открыть"}</div></button>`}).join("")}</div></div><div class="sec"><h2>Бесплатные кейсы · скины до ◈ 50</h2><div class="grid">${FSK.map((c,i)=>{const cd=fcd(5+i);return `<button class="card" onclick="fs=${5+i};fres=0;fdrop=null;render()"><div class="art crs" style="--h:${60+i*55}">${crateSvg(60+i*55)}</div><div class="nm">${c.n.replace("Бесплатный · ","Бесплатный: ")}</div><div class="pr">${cd?"через "+mmss(cd):"скин до ◈ 50"}</div></button>`}).join("")}</div></div><div class="sec"><h2>Кейсы · ${CB.length}</h2><div class="chips" style="margin-bottom:10px">${[["","Все"],["c","До 1 000"],["m","1 000 – 100 000"],["h","Дороже"]].map(([k,l])=>`<button class="chip ${cfl===k?"on":""}" onclick="cfl='${k}';render()">${l}</button>`).join("")}</div><div class="grid">${CB.map((c,i)=>[c,i]).filter(([c])=>cfOk(c)).map(([c,i])=>`<button class="card" onclick="cs=${i};drop=null;render()"><div ${ia("c"+i,c.h,"art crs")}>${st.im["c"+i]?"":crateSvg(c.h)}</div><div class="nm">${c.n}</div><div class="pr"><i>◈</i> ${fmt(c.price)} · ${c.pool.length} предм.</div></button>`).join("")}</div></div>`;
   const c=CB[cs];
   return `<div class="sec"><button class="chip" onclick="if(!busy){cs=null;render()}">‹ Все кейсы</button><h2 style="margin-top:14px">${c.n}</h2><div class="stage"><div class="flash" id="fls"></div><div class="crate" id="crt">${stCrate(c.h,cs)}</div></div><div class="roul" id="rl"><div class="mk"></div><div class="strip" id="strip">${Array.from({length:12},()=>cellH(pickFrom(c))).join("")}</div></div><div id="cres">${resC()}</div><button class="go" id="cgo" onclick="openCase()" ${busy?"disabled":""}>Открыть за ◈ ${fmt(c.price)}</button></div><div class="sec"><h2>Что может выпасть · показано ${Math.min(40,c.pool.length)} из ${c.pool.length}</h2><div class="grid">${c.pool.map((s,i)=>[s,c.ws[i]/c.W]).reverse().slice(0,40).map(([s,w])=>card(s,{tag:(w*100).toFixed(w<.001?2:1)+"%"})).join("")}</div></div>`}
 function openCase(){const c=CB[cs];if(busy)return;if(st.bal<c.price){toast("Не хватает монет");return}
@@ -465,7 +490,7 @@ function mpList(){
   const ob=BT.filter(b=>b.state==="open"&&CB[b.ci]).sort((a,b)=>b.t-a.t).map(b=>`<div class="row2"><div><b>${esc(b.hn||"Игрок")}</b><small>${CB[b.ci].n} · ◈ ${fmt(b.price)}</small></div>${b.host===ME?`<button class="chip x" data-i="${esc(b.id)}" onclick="cancelBattle(this.dataset.i)">Отменить</button>`:`<button class="chip on" data-i="${esc(b.id)}" onclick="joinBattle(this.dataset.i)">Вступить</button>`}</div>`).join("")||`<div class="empty">Открытых баттлов нет. Создай первый!</div>`;
   const ot=TR.filter(t=>t.state==="open"&&SK[t.skin]).sort((a,b)=>b.t-a.t).map(t=>`<div class="row2"><div><b>${esc(SK[t.skin].n)} ${(t.stk||[]).filter(k=>STK[k]).map(k=>STK[k].e).join("")}</b><small>${esc(t.sn||"Игрок")} · цена ◈ ${fmt(t.ask)} (рынок ◈ ${fmt(SK[t.skin].p)})</small></div>${t.seller===ME?`<button class="chip x" data-i="${esc(t.id)}" onclick="cancelTrade(this.dataset.i)">Снять</button>`:`<button class="chip on" data-i="${esc(t.id)}" onclick="buyTrade(this.dataset.i)">Купить</button>`}</div>`).join("")||`<div class="empty">На рынке пока пусто</div>`;
   return `${rb}<h2>Открытые баттлы</h2>${ob}<h2 style="margin-top:20px">Рынок трейдов</h2>${ot}`}
-function vMpGame(){if(!DB)return `<div class="sec"><div class="empty">${onlMsg()}</div></div>`;
+function vMpGame(){if(!DB)return `<div class="sec"><div class="empty">${onlMsg()}</div></div>${onlFoot()}`;
   return `${ONLERR?`<div class="empty" style="margin-bottom:12px">${onlMsg()}</div>`:""}<div class="sec"><h2>Создать баттл</h2><select class="srch" id="bsel">${CB.map((c,i)=>`<option value="${i}">${c.n} · ◈ ${fmt(c.price)}</option>`).join("")}</select><button class="go" style="margin-top:0" onclick="mkBattle()">Создать баттл</button><p class="hint" style="text-align:left">Оба открывают один кейс. У кого скин дороже, тот забирает оба.</p></div>
 <div class="sec"><h2>Выставить скин на трейд</h2>${st.inv.length?`<select class="srch" id="tsel">${st.inv.map(i=>`<option value="${i.uid}">${esc(SK[i.id].n)} · ◈ ${fmt(itemVal(i))}</option>`).join("")}</select><input class="srch" id="task" type="number" min="1" placeholder="Цена в монетах"><button class="go" style="margin-top:0" onclick="mkTrade()">Выставить на трейд</button>`:`<div class="empty">В инвентаре нет скинов</div>`}</div><div class="sec" id="mpl">${mpList()}</div>`}
 async function mkBattle(){const c=CB[+document.getElementById("bsel").value],ci=CB.indexOf(c);if(!DB)return;if(st.bal<c.price){toast("Не хватает монет");return}
@@ -508,7 +533,7 @@ function liveInit(){
   setInterval(countOnl,10000);addEventListener("pagehide",()=>{try{DB.doc("presence/"+ME).delete()}catch(e){}});nameInit();socInit()}
 
 let ONLERR="";
-const OFFMSG="Онлайн-режим работает в опубликованной версии по ссылке на артефакт, когда ты вошёл в аккаунт. В скачанном файле игра одиночная.";
+const OFFMSG="Подключаемся к онлайну… подожди несколько секунд.";
 function onlFail(c){ONLERR=String(c||"error");onlR();if(tab==="mp")render()}
 function onlMsg(){if(!ONLERR)return OFFMSG;const m={"auth/operation-not-allowed":"Включи Anonymous: Firebase → Authentication → Sign-in method","auth/admin-restricted-operation":"Включи Anonymous: Firebase → Authentication → Sign-in method","auth/unauthorized-domain":"Добавь домен сайта: Firebase → Authentication → Settings → Authorized domains","permission-denied":"Проверь правила: Firebase → Firestore Database → Rules","failed-precondition":"Создай базу: Firebase → Firestore Database → Create database","not-found":"Создай базу: Firebase → Firestore Database → Create database","unavailable":"Нет связи с Firebase. Проверь интернет или отключи блокировщик рекламы","auth/network-request-failed":"Нет связи с Firebase. Проверь интернет или отключи блокировщик рекламы","timeout":"Не удалось загрузить Firebase. Проверь интернет или отключи блокировщик рекламы и обнови страницу"};return "Онлайн не подключился. "+(m[ONLERR]||"")+"<br><small>Код: "+esc(ONLERR)+"</small>"}
 const PROMO={NEONDROP:{c:500},GREEN1000:{c:1000},WELCOME:{c:750},LUCKY777:{c:777},DROPZONE:{c:1500},FREECASE:{c:300},NIGHTMODE:{c:2500},BIGWIN:{c:10000},JACKPOT5:{c:5000},STREAMER:{c:25000},UPGRADE:{c:2000},MYSTERY:{c:3000},SKINRAIN:{k:"any",max:2000},KNIFEUP:{k:"knife",max:5000},GLOVEUP:{k:"glove",max:5000}};
@@ -595,7 +620,7 @@ function rerSoc(){if(tab!=="mp")return;const act=(document.activeElement&&docume
 const msgsH=()=>(st.ch[chatWith]||[]).map(m=>`<div class="msg ${m.m?"me":""}">${esc(m.tx)}<small>${new Date(m.t).toLocaleTimeString("ru-RU",{hour:"2-digit",minute:"2-digit"})}</small></div>`).join("")||`<div class="empty">Напиши первым</div>`;
 function vMp(){if(!DB)return vMpGame();
   const t=`<div class="chips" style="margin-bottom:12px">${[["game","⚔ Игра",""],["fr","👥 Друзья",badge()]].map(([k,l,b])=>`<button class="chip ${mpSub===k||(k==="fr"&&(mpSub==="chat"||mpSub==="gift"))?"on":""}" onclick="mpSub='${k}';render()">${l}${b}</button>`).join("")}</div>`;
-  return t+(mpSub==="fr"?vFr():mpSub==="chat"?vChat():mpSub==="gift"?vGift():vMpGame())}
+  return t+(mpSub==="fr"?vFr():mpSub==="chat"?vChat():mpSub==="gift"?vGift():vMpGame())+onlFoot()}
 function vFr(){
   const rq=st.rq.map(r=>`<div class="row2">${avh(r,36)}<div style="flex:1;min-width:0"><b>${esc(r.n)}</b><small>хочет дружить</small></div><button class="chip on" data-u="${esc(r.u)}" onclick="acceptFr(this.dataset.u)">Принять</button><button class="chip x" data-u="${esc(r.u)}" onclick="declineFr(this.dataset.u)">✕</button></div>`).join("");
   const gf=st.gf.map((g,i)=>`<div class="row2"><div style="flex:1;min-width:0"><b>🎁 ${esc(g.fn)}</b><small>${g.gid>=0?esc(SK[g.gid].n):""}${g.gid>=0&&g.coins?" + ":""}${g.coins?"◈ "+fmt(g.coins):""}</small></div><button class="chip on" onclick="claimGift(${i})">Забрать</button></div>`).join("");
@@ -650,9 +675,49 @@ async function submitName(){if(nameBusy)return;const el=document.getElementById(
     st.uname=n;st.pf.n=n;save();nameClose();navR();render();pubProfile();toast(d?"Ник сохранён: "+n:"Ник сохранён на этом устройстве. Уникальность проверим при подключении к онлайну")}
   catch(e){er("Не получилось проверить. Попробуй ещё раз")}
   finally{nameBusy=false;bt.disabled=false;bt.textContent="Продолжить"}}
+
+const BUILD="2026-10-05.b";
+let cfl="";const cfOk=c=>cfl==="c"?c.price<1000:cfl==="m"?c.price>=1000&&c.price<=1e5:cfl==="h"?c.price>1e5:true;
+const onlFoot=()=>`<div class="sec"><button class="chip" onclick="onlTest()">🔧 Проверить онлайн</button> <button class="chip" onclick="location.reload()">↻ Обновить</button><div id="otest" class="hint" style="text-align:left;white-space:pre-wrap"></div><div class="hint" style="text-align:left">Сборка ${BUILD}</div></div>`;
+async function onlTest(){const o=document.getElementById("otest");if(!o)return;const L=["Сборка: "+BUILD,"Адрес: "+location.host],w=()=>{o.textContent=L.join("\n")};
+  if(window.__gh&&!window.__ghstep)L.push("Firebase SDK: не загрузился (интернет или блокировщик рекламы)");
+  (window.__ghstep||[]).forEach(x=>L.push(x.join(": ")));w();
+  if(!DB){L.push("База: не подключена"+(ONLERR?" ("+ONLERR+")":""));w();return}
+  L.push("Вход: ок, id "+String(ME).slice(0,6)+"…");w();
+  try{const r=DB.doc("diag/"+ME);await r.set({t:Date.now()});L.push("Запись в базу: ок");w();const sn=await r.get();L.push("Чтение из базы: "+(sn.exists?"ок":"нет данных"))}catch(e){L.push("Ошибка базы: "+((e&&e.code)||(e&&e.message)||e))}
+  w()}
 render();
 mpInit();
 onlR();feedRender();
+</script>
+<script>window.__gh=1;setTimeout(function(){if(!window.__ghok&&window.onlFail)onlFail("timeout")},12000)</script>
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInAnonymously} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,doc,addDoc,getDoc,updateDoc,deleteDoc,onSnapshot,query,limit,orderBy,setDoc,runTransaction} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+try{
+  const app=initializeApp({apiKey:"AIzaSyBcqnbPQRlWz7YcmGYEkuk9RFsPSC4LatM",authDomain:"neon-drop-49ce4.firebaseapp.com",projectId:"neon-drop-49ce4",storageBucket:"neon-drop-49ce4.firebasestorage.app",messagingSenderId:"848555797182",appId:"1:848555797182:web:e0ae4d2d25d9ac7bf50cef"});
+  const fs=getFirestore(app);
+  window.__ghstep=[["Firebase SDK","загружен"]];
+  const uid=(await signInAnonymously(getAuth(app))).user.uid;
+  window.__ghok=1;window.__ghstep.push(["Анонимный вход","ок"]);
+  const sd=d=>({id:d.id,exists:d.exists(),data:()=>d.data()});
+  const snap=(q,cb,er)=>onSnapshot(q,s=>cb({docs:s.docs.map(sd)}),er);
+  const DBx={
+    collection:name=>({
+      limit:n=>({onSnapshot:(cb,er)=>snap(query(collection(fs,name),limit(n)),cb,er)}),
+      orderBy:(f,dr)=>({limit:n=>({onSnapshot:(cb,er)=>snap(query(collection(fs,name),orderBy(f,dr),limit(n)),cb,er)})}),
+      add:d=>addDoc(collection(fs,name),d)}),
+    doc:path=>{const r=doc(fs,path);return{
+      get:async()=>sd(await getDoc(r)),
+      set:d=>setDoc(r,d),
+      update:d=>updateDoc(r,d),
+      delete:()=>deleteDoc(r),
+      claim:d=>runTransaction(fs,async tx=>{const s=await tx.get(r);if(s.exists()&&(s.data()||{}).u!==d.u)return false;tx.set(r,d);return true}),
+      acquire:async o=>({acquired:await runTransaction(fs,async tx=>{const s=await tx.get(r),d=s.exists()?s.data():{};if(d.lockUntil>Date.now()&&d.lockBy!==o.holder)return false;if(s.exists())tx.update(r,{lockBy:o.holder,lockUntil:Date.now()+(o.ttlMs||5000)});return true})})}}};
+  window.claude={use:async k=>k==="user"?{id:async()=>uid}:k==="db"?DBx:null};
+  if(window.mpInit)window.mpInit();
+}catch(e){console.warn("Онлайн недоступен:",e);window.__ghok=1;(window.__ghstep=window.__ghstep||[]).push(["Ошибка",String(e&&(e.code||e.message))]);if(window.onlFail)window.onlFail(e&&(e.code||e.message))}
 </script>
 </body>
 </html>
