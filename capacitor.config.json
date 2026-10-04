@@ -1,0 +1,9 @@
+{
+  "appId": "com.lorvexx.neondrop",
+  "appName": "NEON DROP",
+  "webDir": "www",
+  "backgroundColor": "#040806",
+  "server": {
+    "androidScheme": "https"
+  }
+}
